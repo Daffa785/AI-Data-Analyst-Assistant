@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Data Analyst Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===================== LAYOUT WRAPPER ===================== -->
+  <div class="app-layout">
+
+    <!-- ===================== SIDEBAR ===================== -->
+    <aside class="sidebar" aria-label="Main navigation">
+      <div class="sidebar__brand">
+        <div class="sidebar__logo" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="28" height="28" rx="8" fill="#2563EB"/>
+            <path d="M7 20L11 14L14 17L18 10L21 14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="21" cy="9" r="2" fill="#93C5FD"/>
+          </svg>
+        </div>
+        <span class="sidebar__name">DataAI</span>
+      </div>
+
+      <nav class="sidebar__nav" aria-label="Sidebar menu">
+        <ul class="sidebar__nav-list" role="list">
+          <li class="sidebar__nav-item sidebar__nav-item--active" aria-current="page">
+            <a href="#dashboard" class="sidebar__nav-link" aria-label="Dashboard">
+              <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M3 4a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 8a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H4a1 1 0 01-1-1v-4zm8-8a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1V4zm0 8a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z"/></svg>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li class="sidebar__nav-item">
+            <a href="#datasets" class="sidebar__nav-link" aria-label="Datasets">
+              <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M3 12v3c0 1.657 3.134 3 7 3s7-1.343 7-3v-3c0 1.657-3.134 3-7 3s-7-1.343-7-3zm0-4v3c0 1.657 3.134 3 7 3s7-1.343 7-3V8c0 1.657-3.134 3-7 3S3 9.657 3 8zm7-4C6.134 4 3 5.343 3 7s3.134 3 7 3 7-1.343 7-3-3.134-3-7-3z"/></svg>
+              <span>Datasets</span>
+            </a>
+          </li>
+          <li class="sidebar__nav-item">
+            <a href="#analysis" class="sidebar__nav-link" aria-label="Data Analysis">
+              <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11 4a1 1 0 10-2 0v4a1 1 0 102 0V7zm-3 1a1 1 0 10-2 0v3a1 1 0 102 0V8zM8 9a1 1 0 00-2 0v2a1 1 0 102 0V9z" clip-rule="evenodd"/></svg>
+              <span>Data Analysis</span>
+            </a>
+          </li>
+          <li class="sidebar__nav-item">
+            <a href="#visualizations" class="sidebar__nav-link" aria-label="Visualizations">
+              <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zm6-4a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zm6-3a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>
+              <span>Visualizations</span>
+            </a>
+          </li>
+          <li class="sidebar__nav-item">
+            <a href="#ai-assistant" class="sidebar__nav-link" aria-label="AI Assistant">
+              <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clip-rule="evenodd"/></svg>
+              <span>AI Assistant</span>
+            </a>
+          </li>
+          <li class="sidebar__nav-item">
+            <a href="#reports" class="sidebar__nav-link" aria-label="Reports">
+              <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/></svg>
+              <span>Reports</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="sidebar__section-label">System</div>
+        <ul class="sidebar__nav-list" role="list">
+          <li class="sidebar__nav-item">
+            <a href="#settings" class="sidebar__nav-link" aria-label="Settings">
+              <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/></svg>
+              <span>Settings</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="sidebar__footer">
+        <div class="sidebar__footer-badge">v1.0 Prototype</div>
+      </div>
+    </aside>
+
+    <!-- ===================== MAIN CONTENT ===================== -->
+    <main class="main-content" id="main-content">
+
+      <!-- ===== TOP NAVIGATION ===== -->
+      <header class="topnav" role="banner">
+        <div class="topnav__title">
+          <span class="topnav__breadcrumb">Dashboard</span>
+          <span class="topnav__breadcrumb-sep" aria-hidden="true">›</span>
+          <span class="topnav__breadcrumb topnav__breadcrumb--current">Overview</span>
+        </div>
+        <div class="topnav__actions">
+          <div class="topnav__search">
+            <label for="global-search" class="sr-only">Search datasets or insights</label>
+            <svg class="topnav__search-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg>
+            <input type="search" id="global-search" class="topnav__search-input" placeholder="Search datasets, insights…" aria-label="Search datasets or insights" readonly title="Search — prototype, not functional" />
+          </div>
+          <button class="topnav__icon-btn" aria-label="Notifications (prototype)" title="Notifications — prototype">
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"/></svg>
+            <span class="topnav__notif-badge" aria-label="3 unread notifications">3</span>
+          </button>
+          <div class="topnav__profile" role="img" aria-label="User profile: Alex P.">
+            <div class="topnav__avatar" aria-hidden="true">AP</div>
+            <div class="topnav__profile-info">
+              <span class="topnav__profile-name">Alex P.</span>
+              <span class="topnav__profile-role">Analyst</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- ===== HERO SECTION ===== -->
+      <section class="hero" id="dashboard" aria-label="Welcome hero">
+        <div class="hero__media" aria-hidden="true">
+          <video
+            class="hero__video"
+            src="assets/videos/smart-city.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            aria-hidden="true"
+            tabindex="-1"
+          ></video>
+          <div class="hero__overlay" aria-hidden="true"></div>
+        </div>
+        <div class="hero__content">
+          <div class="hero__badge" aria-label="Status: Prototype">✦ Capstone Project — Prototype</div>
+          <h1 class="hero__title">AI Data Analyst Assistant</h1>
+          <p class="hero__subtitle">Turn your data into meaningful insights with intelligent analysis.</p>
+          <div class="hero__actions">
+            <a href="#datasets" class="btn btn--primary" aria-label="Start analysis — prototype">Mulai Analisis</a>
+            <a href="#visualizations" class="btn btn--ghost" aria-label="View dashboard — scrolls to visualizations">Lihat Dashboard</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PAGE CONTENT ===== -->
+      <div class="page-body">
+
+        <!-- ===== KPI CARDS ===== -->
+        <section class="section" aria-labelledby="kpi-heading">
+          <h2 class="section__title" id="kpi-heading">Overview <span class="badge badge--info">Sample Data</span></h2>
+          <div class="kpi-grid">
+            <article class="kpi-card" aria-label="Total Records: 1,250">
+              <div class="kpi-card__icon kpi-card__icon--blue" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"/></svg>
+              </div>
+              <div class="kpi-card__body">
+                <span class="kpi-card__label">Total Records</span>
+                <span class="kpi-card__value">1,250</span>
+                <span class="kpi-card__delta kpi-card__delta--up" aria-label="Up 4.2% from last period">↑ 4.2%</span>
+              </div>
+            </article>
+            <article class="kpi-card" aria-label="Average Value: 82.5">
+              <div class="kpi-card__icon kpi-card__icon--green" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11 4a1 1 0 10-2 0v4a1 1 0 102 0V7zm-3 1a1 1 0 10-2 0v3a1 1 0 102 0V8zM8 9a1 1 0 00-2 0v2a1 1 0 102 0V9z" clip-rule="evenodd"/></svg>
+              </div>
+              <div class="kpi-card__body">
+                <span class="kpi-card__label">Average Value</span>
+                <span class="kpi-card__value">82.5</span>
+                <span class="kpi-card__delta kpi-card__delta--up" aria-label="Up 1.8% from last period">↑ 1.8%</span>
+              </div>
+            </article>
+            <article class="kpi-card" aria-label="Missing Values: 12">
+              <div class="kpi-card__icon kpi-card__icon--yellow" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+              </div>
+              <div class="kpi-card__body">
+                <span class="kpi-card__label">Missing Values</span>
+                <span class="kpi-card__value">12</span>
+                <span class="kpi-card__delta kpi-card__delta--down" aria-label="Down 2 from last period">↓ 2 less</span>
+              </div>
+            </article>
+            <article class="kpi-card" aria-label="Total Columns: 8">
+              <div class="kpi-card__icon kpi-card__icon--purple" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM14 11a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0v-1h-1a1 1 0 110-2h1v-1a1 1 0 011-1z"/></svg>
+              </div>
+              <div class="kpi-card__body">
+                <span class="kpi-card__label">Total Columns</span>
+                <span class="kpi-card__value">8</span>
+                <span class="kpi-card__delta kpi-card__delta--neutral" aria-label="No change from last period">— No change</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- ===== DATASET MANAGEMENT ===== -->
+        <section class="section" id="datasets" aria-labelledby="dataset-heading">
+          <h2 class="section__title" id="dataset-heading">Dataset Management</h2>
+          <div class="two-col-grid">
+
+            <!-- Dataset Info Card -->
+            <div class="card">
+              <div class="card__header">
+                <h3 class="card__title">Active Dataset</h3>
+                <span class="badge badge--success">Loaded</span>
+              </div>
+              <dl class="dataset-info">
+                <div class="dataset-info__row">
+                  <dt class="dataset-info__label">Filename</dt>
+                  <dd class="dataset-info__value">sample_data.csv</dd>
+                </div>
+                <div class="dataset-info__row">
+                  <dt class="dataset-info__label">File Type</dt>
+                  <dd class="dataset-info__value">CSV</dd>
+                </div>
+                <div class="dataset-info__row">
+                  <dt class="dataset-info__label">Row Count</dt>
+                  <dd class="dataset-info__value">1,250</dd>
+                </div>
+                <div class="dataset-info__row">
+                  <dt class="dataset-info__label">Column Count</dt>
+                  <dd class="dataset-info__value">8</dd>
+                </div>
+                <div class="dataset-info__row">
+                  <dt class="dataset-info__label">Status</dt>
+                  <dd class="dataset-info__value"><span class="status-dot status-dot--success" aria-hidden="true"></span> Ready for Analysis</dd>
+                </div>
+                <div class="dataset-info__row">
+                  <dt class="dataset-info__label">Last Updated</dt>
+                  <dd class="dataset-info__value">Today, 09:14</dd>
+                </div>
+              </dl>
+            </div>
+
+            <!-- Upload Card -->
+            <div class="card">
+              <div class="card__header">
+                <h3 class="card__title">Upload Dataset</h3>
+                <span class="badge badge--warning">Prototype Only</span>
+              </div>
+              <div class="upload-zone" role="region" aria-label="File upload area — not functional in prototype">
+                <div class="upload-zone__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/></svg>
+                </div>
+                <p class="upload-zone__title">Drag &amp; drop your CSV file here</p>
+                <p class="upload-zone__sub">or click to browse — <strong>not functional in prototype</strong></p>
+                <p class="upload-zone__hint">Supported: .csv · Max 10 MB</p>
+                <button class="btn btn--secondary btn--sm" aria-label="Select file — prototype, upload not functional" disabled>Select File</button>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ===== DATA PREVIEW ===== -->
+        <section class="section" id="analysis" aria-labelledby="preview-heading">
+          <h2 class="section__title" id="preview-heading">Data Preview <span class="badge badge--info">Illustrative Sample</span></h2>
+          <div class="card">
+            <div class="card__header">
+              <h3 class="card__title">sample_data.csv — First 8 rows</h3>
+              <span class="badge badge--neutral">Read-only</span>
+            </div>
+            <div class="table-wrapper" role="region" aria-label="Data preview table" tabindex="0">
+              <table class="data-table" aria-label="Sample dataset preview">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Score</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Revenue ($)</th>
+                    <th scope="col">Region</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>1</td><td>Alice Johnson</td><td>28</td><td>91.4</td><td>Premium</td><td>4,320</td><td>West</td><td><span class="badge badge--success">Active</span></td></tr>
+                  <tr><td>2</td><td>Bob Martinez</td><td>34</td><td>78.2</td><td>Standard</td><td>2,150</td><td>East</td><td><span class="badge badge--success">Active</span></td></tr>
+                  <tr><td>3</td><td>Carol Smith</td><td>45</td><td>85.0</td><td>Premium</td><td>5,800</td><td>North</td><td><span class="badge badge--warning">Pending</span></td></tr>
+                  <tr><td>4</td><td>David Lee</td><td>22</td><td>66.7</td><td>Basic</td><td>980</td><td>South</td><td><span class="badge badge--success">Active</span></td></tr>
+                  <tr><td>5</td><td>Eva Brown</td><td>31</td><td>93.1</td><td>Premium</td><td>6,200</td><td>West</td><td><span class="badge badge--success">Active</span></td></tr>
+                  <tr><td>6</td><td>Frank Wilson</td><td>50</td><td>72.5</td><td>Standard</td><td>3,100</td><td>East</td><td><span class="badge badge--error">Inactive</span></td></tr>
+                  <tr><td>7</td><td>Grace Kim</td><td>27</td><td>88.9</td><td>Premium</td><td>4,750</td><td>North</td><td><span class="badge badge--success">Active</span></td></tr>
+                  <tr><td>8</td><td>Henry Davis</td><td>39</td><td>—</td><td>Standard</td><td>2,800</td><td>West</td><td><span class="badge badge--warning">Pending</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="card__footnote">Showing 8 of 1,250 rows. Values are illustrative sample data only.</p>
+          </div>
+        </section>
+
+        <!-- ===== VISUALIZATIONS ===== -->
+        <section class="section" id="visualizations" aria-labelledby="viz-heading">
+          <h2 class="section__title" id="viz-heading">Data Visualizations <span class="badge badge--info">Illustrative Preview</span></h2>
+          <div class="two-col-grid">
+
+            <!-- Bar Chart -->
+            <div class="card" aria-label="Bar chart — Revenue by Region">
+              <div class="card__header">
+                <h3 class="card__title">Revenue by Region</h3>
+                <span class="badge badge--neutral">Bar Chart</span>
+              </div>
+              <div class="chart" role="img" aria-label="Bar chart showing revenue by region: West 18.2k, East 8.0k, North 10.6k, South 1.0k">
+                <div class="chart__legend" aria-hidden="true"><span class="chart__legend-dot chart__legend-dot--blue"></span> Revenue ($000s)</div>
+                <div class="bar-chart" aria-hidden="true">
+                  <div class="bar-chart__group">
+                    <div class="bar-chart__bar" style="--bar-h: 78%" title="West: $18,270"></div>
+                    <span class="bar-chart__label">West</span>
+                    <span class="bar-chart__val">18.2k</span>
+                  </div>
+                  <div class="bar-chart__group">
+                    <div class="bar-chart__bar" style="--bar-h: 34%" title="East: $8,050"></div>
+                    <span class="bar-chart__label">East</span>
+                    <span class="bar-chart__val">8.0k</span>
+                  </div>
+                  <div class="bar-chart__group">
+                    <div class="bar-chart__bar" style="--bar-h: 45%" title="North: $10,550"></div>
+                    <span class="bar-chart__label">North</span>
+                    <span class="bar-chart__val">10.6k</span>
+                  </div>
+                  <div class="bar-chart__group">
+                    <div class="bar-chart__bar bar-chart__bar--light" style="--bar-h: 14%" title="South: $980"></div>
+                    <span class="bar-chart__label">South</span>
+                    <span class="bar-chart__val">1.0k</span>
+                  </div>
+                </div>
+              </div>
+              <p class="card__footnote">Illustrative sample data only. Real chart will be generated from uploaded CSV.</p>
+            </div>
+
+            <!-- Line Chart -->
+            <div class="card" aria-label="Line chart — Score trend over 6 months">
+              <div class="card__header">
+                <h3 class="card__title">Average Score Trend</h3>
+                <span class="badge badge--neutral">Line Chart</span>
+              </div>
+              <div class="chart" role="img" aria-label="Line chart showing average score trend: Jan 74, Feb 78, Mar 81, Apr 79, May 86, Jun 83">
+                <div class="chart__legend" aria-hidden="true"><span class="chart__legend-dot chart__legend-dot--green"></span> Avg Score</div>
+                <div class="line-chart" aria-hidden="true">
+                  <svg class="line-chart__svg" viewBox="0 0 320 120" preserveAspectRatio="xMidYMid meet">
+                    <!-- Grid lines -->
+                    <line x1="0" y1="20" x2="320" y2="20" stroke="#E2E8F0" stroke-width="1"/>
+                    <line x1="0" y1="50" x2="320" y2="50" stroke="#E2E8F0" stroke-width="1"/>
+                    <line x1="0" y1="80" x2="320" y2="80" stroke="#E2E8F0" stroke-width="1"/>
+                    <line x1="0" y1="110" x2="320" y2="110" stroke="#E2E8F0" stroke-width="1"/>
+                    <!-- Area fill -->
+                    <path d="M 10 90 L 74 75 L 138 62 L 202 68 L 266 40 L 310 50 L 310 110 L 10 110 Z" fill="#DBEAFE" opacity="0.6"/>
+                    <!-- Line -->
+                    <polyline points="10,90 74,75 138,62 202,68 266,40 310,50" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <!-- Dots -->
+                    <circle cx="10"  cy="90" r="4" fill="#2563EB"/>
+                    <circle cx="74"  cy="75" r="4" fill="#2563EB"/>
+                    <circle cx="138" cy="62" r="4" fill="#2563EB"/>
+                    <circle cx="202" cy="68" r="4" fill="#2563EB"/>
+                    <circle cx="266" cy="40" r="4" fill="#2563EB"/>
+                    <circle cx="310" cy="50" r="4" fill="#2563EB"/>
+                    <!-- Labels -->
+                    <text x="10"  y="120" class="chart-label" text-anchor="middle">Jan</text>
+                    <text x="74"  y="120" class="chart-label" text-anchor="middle">Feb</text>
+                    <text x="138" y="120" class="chart-label" text-anchor="middle">Mar</text>
+                    <text x="202" y="120" class="chart-label" text-anchor="middle">Apr</text>
+                    <text x="266" y="120" class="chart-label" text-anchor="middle">May</text>
+                    <text x="310" y="120" class="chart-label" text-anchor="middle">Jun</text>
+                  </svg>
+                </div>
+              </div>
+              <p class="card__footnote">Illustrative sample data only. Real chart will be generated from uploaded CSV.</p>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ===== AI INSIGHTS & CHAT ===== -->
+        <section class="section" id="ai-assistant" aria-labelledby="ai-heading">
+          <h2 class="section__title" id="ai-heading">AI Insights <span class="badge badge--warning">Demo Only — No AI Connected</span></h2>
+          <div class="two-col-grid">
+
+            <!-- Insights Card -->
+            <div class="card" aria-label="AI-generated insights panel">
+              <div class="card__header">
+                <h3 class="card__title">Key Findings</h3>
+                <span class="badge badge--info">Simulated</span>
+              </div>
+              <ul class="insight-list">
+                <li class="insight-item insight-item--positive">
+                  <span class="insight-item__icon" aria-hidden="true">↑</span>
+                  <div>
+                    <strong>West region leads in revenue</strong>
+                    <p>West accounts for ~48% of total revenue, driven by Premium-tier customers.</p>
+                  </div>
+                </li>
+                <li class="insight-item insight-item--warning">
+                  <span class="insight-item__icon" aria-hidden="true">!</span>
+                  <div>
+                    <strong>Missing values in Score column</strong>
+                    <p>12 rows have missing Score values, which may skew statistical averages.</p>
+                  </div>
+                </li>
+                <li class="insight-item insight-item--positive">
+                  <span class="insight-item__icon" aria-hidden="true">↑</span>
+                  <div>
+                    <strong>Premium tier outperforms others</strong>
+                    <p>Premium customers have an average score of 90.8 vs 75.2 for Standard.</p>
+                  </div>
+                </li>
+                <li class="insight-item insight-item--neutral">
+                  <span class="insight-item__icon" aria-hidden="true">→</span>
+                  <div>
+                    <strong>Score trend is improving</strong>
+                    <p>Average score increased from 74 in January to 83 in June (+12.2%).</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Chat Panel -->
+            <div class="card" aria-label="AI assistant chat panel — demonstration only">
+              <div class="card__header">
+                <h3 class="card__title">AI Assistant</h3>
+                <span class="badge badge--warning">Not Connected</span>
+              </div>
+              <div class="chat-panel">
+                <div class="chat-msg chat-msg--user" aria-label="User message">
+                  <div class="chat-msg__bubble">What is the average score for Premium customers?</div>
+                  <span class="chat-msg__meta">You · 09:15</span>
+                </div>
+                <div class="chat-msg chat-msg--ai" aria-label="AI response">
+                  <div class="chat-msg__avatar" aria-hidden="true">AI</div>
+                  <div>
+                    <div class="chat-msg__bubble">Based on the loaded dataset, Premium-tier customers have an <strong>average score of 90.8</strong>. This is significantly higher than Standard (75.2) and Basic (66.7) tiers, suggesting a strong correlation between tier and engagement score.</div>
+                    <span class="chat-msg__meta">AI Assistant · 09:15 · <em>Simulated response</em></span>
+                  </div>
+                </div>
+                <div class="chat-msg chat-msg--user" aria-label="User message">
+                  <div class="chat-msg__bubble">Which region has the most missing values?</div>
+                  <span class="chat-msg__meta">You · 09:16</span>
+                </div>
+                <div class="chat-msg chat-msg--ai" aria-label="AI response">
+                  <div class="chat-msg__avatar" aria-hidden="true">AI</div>
+                  <div>
+                    <div class="chat-msg__bubble">The <strong>East region</strong> has the highest rate of missing values at 8 out of 12 total. I recommend imputing with the column median or flagging these records before running regression models.</div>
+                    <span class="chat-msg__meta">AI Assistant · 09:16 · <em>Simulated response</em></span>
+                  </div>
+                </div>
+              </div>
+              <div class="chat-input-row" aria-label="Message input — prototype, not functional">
+                <label for="chat-input" class="sr-only">Type your question</label>
+                <input type="text" id="chat-input" class="chat-input" placeholder="Ask about your data… (prototype)" aria-label="Chat message input — not functional" readonly />
+                <button class="btn btn--primary btn--sm" aria-label="Send message — prototype, not functional" disabled>Send</button>
+              </div>
+              <p class="card__footnote">This is a demonstration. No AI model is connected in this prototype.</p>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ===== RECENT ACTIVITY ===== -->
+        <section class="section" aria-labelledby="activity-heading">
+          <h2 class="section__title" id="activity-heading">Recent Activity</h2>
+          <div class="card">
+            <ul class="activity-list" aria-label="Recent activity log">
+              <li class="activity-item">
+                <div class="activity-item__icon activity-item__icon--blue" aria-hidden="true">↑</div>
+                <div class="activity-item__body">
+                  <span class="activity-item__title">Dataset Uploaded</span>
+                  <span class="activity-item__desc">sample_data.csv — 1,250 rows, 8 columns</span>
+                </div>
+                <span class="activity-item__time">Today, 09:14</span>
+                <span class="badge badge--success">Success</span>
+              </li>
+              <li class="activity-item">
+                <div class="activity-item__icon activity-item__icon--green" aria-hidden="true">✓</div>
+                <div class="activity-item__body">
+                  <span class="activity-item__title">Statistical Analysis Completed</span>
+                  <span class="activity-item__desc">Descriptive statistics generated for all 8 columns</span>
+                </div>
+                <span class="activity-item__time">Today, 09:15</span>
+                <span class="badge badge--success">Done</span>
+              </li>
+              <li class="activity-item">
+                <div class="activity-item__icon activity-item__icon--purple" aria-hidden="true">⊞</div>
+                <div class="activity-item__body">
+                  <span class="activity-item__title">Visualization Generated</span>
+                  <span class="activity-item__desc">Revenue by Region bar chart and Score Trend line chart</span>
+                </div>
+                <span class="activity-item__time">Today, 09:16</span>
+                <span class="badge badge--success">Done</span>
+              </li>
+              <li class="activity-item">
+                <div class="activity-item__icon activity-item__icon--yellow" aria-hidden="true">!</div>
+                <div class="activity-item__body">
+                  <span class="activity-item__title">Data Quality Warning</span>
+                  <span class="activity-item__desc">12 missing values detected in Score column</span>
+                </div>
+                <span class="activity-item__time">Today, 09:16</span>
+                <span class="badge badge--warning">Warning</span>
+              </li>
+              <li class="activity-item">
+                <div class="activity-item__icon activity-item__icon--blue" aria-hidden="true">✦</div>
+                <div class="activity-item__body">
+                  <span class="activity-item__title">AI Insights Generated</span>
+                  <span class="activity-item__desc">4 key findings identified from dataset</span>
+                </div>
+                <span class="activity-item__time">Today, 09:17</span>
+                <span class="badge badge--success">Done</span>
+              </li>
+              <li class="activity-item">
+                <div class="activity-item__icon activity-item__icon--green" aria-hidden="true">⊟</div>
+                <div class="activity-item__body">
+                  <span class="activity-item__title">Report Exported</span>
+                  <span class="activity-item__desc">PDF summary report generated and saved</span>
+                </div>
+                <span class="activity-item__time">Today, 09:20</span>
+                <span class="badge badge--success">Done</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+      </div><!-- /.page-body -->
+
+      <!-- ===== FOOTER ===== -->
+      <footer class="site-footer" role="contentinfo">
+        <p><strong>AI Data Analyst Assistant</strong> — Capstone Project Prototype</p>
+        <p class="site-footer__sub">This is a static frontend prototype. No data is processed, stored, or transmitted.</p>
+      </footer>
+
+    </main>
+  </div><!-- /.app-layout -->
+
+</body>
+</html>
